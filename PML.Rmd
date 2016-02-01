@@ -1,7 +1,6 @@
 ---
 title: "PML Project"
 author: "D Sh"
-date: "1 февраля 2016 г."
 output: html_document
 ---
 
@@ -40,7 +39,7 @@ library(knitr)
 ```{r}
 set.seed(12345)
 
-setwd("C:\\Users\\DShevchenko\\Documents\\PML")
+setwd("E:\\Coursera\\PMLP")
 
 training <- read.csv("pml-training.csv", na.strings=c("", "NA", "NULL"))
 testing <- read.csv("pml-testing.csv", na.strings=c("", "NA", "NULL"))
@@ -163,14 +162,13 @@ predictionB2
 Write our prediction in files for quiz
 
 ```{r}
-pml_write_files = function(x){
+pml_write = function(x){
     n = length(x)
     for(i in 1:n){
-        filename = paste0("problem_id_",i,".txt")
-        write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+        filename = paste0("problem_id_", i, ".txt")
+        write.table(x[i], file=filename, quote=FALSE, row.names=FALSE, col.names=FALSE)
     }
 }
 
-pml_write_files(predictionB2)
+pml_write(predictionB2)
 ```
-
